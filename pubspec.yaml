@@ -35,16 +35,28 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # State management
   flutter_bloc: ^8.1.4
+  # Code generator for mainly used with cubit and retrofit
   freezed: ^2.4.7
+  # Annotations for the freezed code-generator.
   freezed_annotation: ^2.4.1
+  # For dependency injection.
   get_it: ^7.6.7
+  # Automatically generate code for converting to and from JSON by annotating Dart classes
+  json_serializable: ^6.7.1
+  # Classes and helper functions that support JSON code generation via the `json_serializable` package
   json_annotation: ^4.8.1
+  # A powerful HTTP networking package, supports Interceptors, Aborting and canceling a request.
   dio: ^5.4.1
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
+  # Pretty Dio logger is a Dio interceptor that logs network calls in a pretty, easy to read format
   pretty_dio_logger: ^1.3.1
   intl: ^0.19.0
+  flutter_native_splash: ^2.3.11
+
+
 
 dev_dependencies:
   flutter_test:
