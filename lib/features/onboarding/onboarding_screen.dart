@@ -1,4 +1,6 @@
 import 'package:docdoc_app/core/theming/styles.dart';
+import 'package:docdoc_app/core/widgets/docdoc_text_button.dart';
+import 'package:docdoc_app/features/login/ui/widget/login_screen.dart';
 import 'package:docdoc_app/features/onboarding/widgets/doctor_logo_and_image.dart';
 import 'package:flutter/material.dart';
 import 'package:docdoc_app/features/onboarding/widgets/doc_logo_and_name.dart';
@@ -32,7 +34,9 @@ class OnboardingScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 18.sp),
-                    GetStartedButton(),
+                    DocdocTextButton(textButton: 'Get Started',textStyle: Styles.font16spWhiteSemibold, onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen() ));
+                    })
                   ],
                 ),
               )
