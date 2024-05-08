@@ -59,4 +59,13 @@ class Styles {
       fontSize: 13.sp,
       fontWeight: FontWeightHelper.thin
   );
+  static TextStyle font13splightGreyBold = TextStyle(
+      color: Colors.grey,
+      fontSize: 13.sp,
+      fontWeight: FontWeightHelper.bold
+  );
+  static TextStyle font13splightGreyregular = TextStyle(
+  color: ColorsManger.grey,
+  fontSize: 12.sp,
+  fontWeight: FontWeightHelper.regular);
 }
