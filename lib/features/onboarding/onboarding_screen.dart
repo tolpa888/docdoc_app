@@ -1,3 +1,5 @@
+import 'package:docdoc_app/core/routing/app_router.dart';
+import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/theming/styles.dart';
 import 'package:docdoc_app/core/widgets/docdoc_text_button.dart';
 import 'package:docdoc_app/features/login/ui/widget/login_screen.dart';
@@ -8,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:docdoc_app/features/onboarding/widgets/get_started_button.dart';
 
 class OnboardingScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,7 @@ class OnboardingScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 18.sp),
                     DocdocTextButton(textButton: 'Get Started',textStyle: Styles.font16spWhiteSemibold, onPressed: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen() ));
+                      Navigator.pushNamed(context, Routes.loginScreen);
                     })
                   ],
                 ),

@@ -3,21 +3,20 @@ import 'package:docdoc_app/core/theming/colors.dart';
 import 'package:docdoc_app/core/theming/styles.dart';
 import 'package:docdoc_app/core/widgets/docdoc_text_button.dart';
 import 'package:docdoc_app/core/widgets/docdoc_text_form_field.dart';
+import 'package:docdoc_app/features/login/data/model/login_request_body.dart';
+import 'package:docdoc_app/features/login/logic/login_cubit.dart';
+import 'package:docdoc_app/features/login/ui/widget/email_and_password.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:docdoc_app/features/login/ui/widget/already_have_an_account.dart';
 import 'package:docdoc_app/features/login/ui/widget/terms_and_conditions.dart';
+import 'package:docdoc_app/features/login/data/model/login_request_body.dart';
 
-class LoginScreen extends StatefulWidget {
+import 'login_cubit_listener.dart';
+
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final formKey = GlobalKey<FormState>();
-  bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -39,31 +38,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: Styles.font14spGreyRegular,
                 ),
                 verticalSpacing(31),
-                Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      const DocdocTextFormField(
-                        hintText: 'Email',
-                      ),
-                      verticalSpacing(18),
-                      DocdocTextFormField(
-                        hintText: 'Password',
-                        isObscureText: isObscureText,
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isObscureText = !isObscureText;
-                            });
-                          },
-                          child: Icon(isObscureText
-                              ? Icons.visibility_off
-                              : Icons.visibility, color: ColorsManger.mainblue,),
-                        ),
-                      ),
-                      verticalSpacing(24),
-                    ],
-                  ),
+                Column(
+                  children: [
+                    EmailAndPassword(),
+                    verticalSpacing(24),
+                  ],
                 ),
                 verticalSpacing(24),
                 Align(
@@ -72,21 +51,33 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: Styles.font12spMainBlueRegular),
                 ),
                 verticalSpacing(40),
-                DocdocTextButton(textButton: 'Login',textStyle: Styles.font16spWhiteSemibold,
-                  onPressed:(){
-
-                } ,),
+                DocdocTextButton(
+                  textButton: 'Login',
+                  textStyle: Styles.font16spWhiteSemibold,
+                  onPressed: () {
+                    validateThenLogin(context);
+                  },
+                ),
                 verticalSpacing(16),
                 AlreadyHaveAnAccount(),
                 verticalSpacing(60),
-                TermsAndConditions()
-
-
+                TermsAndConditions(),
+                LoginCubitListener(),
               ],
             ),
           ),
         ),
       ),
     );
+
+  }
+
+  void validateThenLogin(BuildContext context){
+if (context.read<LoginCubit>().formKey.currentState!.validate()){
+context.read<LoginCubit>().emitLoginState(LoginRequesBody(
+    email: context.read<LoginCubit>().emailController.text,
+    password: context.read<LoginCubit>().passwordController.text));
+
+}
   }
 }

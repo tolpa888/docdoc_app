@@ -5,6 +5,7 @@ import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/features/login/ui/widget/login_screen.dart';
 import 'package:docdoc_app/features/onboarding/onboarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:docdoc_app/features/home/home.dart';
 
 class AppRouter {
   Route generateRoutes(RouteSettings settings) {
@@ -17,6 +18,8 @@ class AppRouter {
                   create: (context) => getIt<LoginCubit>(),
                   child: LoginScreen(),
                 ));
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (_) => HomeScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

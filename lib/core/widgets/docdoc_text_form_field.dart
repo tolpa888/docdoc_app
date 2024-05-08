@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:docdoc_app/core/theming/colors.dart';
 import 'package:docdoc_app/core/theming/styles.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,6 +16,8 @@ class DocdocTextFormField extends StatelessWidget {
   final bool? isObscureText;
   final Widget? suffixIcon;
   final Color? fillColor;
+  final TextEditingController? controller;
+  final Function(String?) validator;
 
   const DocdocTextFormField(
       {super.key,
@@ -25,7 +29,9 @@ class DocdocTextFormField extends StatelessWidget {
       required this.hintText,
       this.isObscureText,
       this.suffixIcon,
-      this.fillColor});
+      this.fillColor,
+      this.controller,
+      required this.validator});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +46,6 @@ class DocdocTextFormField extends StatelessWidget {
                 borderSide: const BorderSide(
                   color: ColorsManger.ligterGrey,
                   width: 1,
-
                 ),
                 borderRadius: BorderRadius.circular(16)),
         focusedBorder: focusedBorder ??
@@ -48,7 +53,20 @@ class DocdocTextFormField extends StatelessWidget {
                 borderSide: const BorderSide(
                   color: ColorsManger.mainblue,
                   width: 1.3,
-
+                ),
+                borderRadius: BorderRadius.circular(16)),
+        errorBorder: focusedBorder ??
+            OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: Colors.red,
+                  width: 1.3,
+                ),
+                borderRadius: BorderRadius.circular(16)),
+        focusedErrorBorder: focusedBorder ??
+            OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: Colors.red,
+                  width: 1.3,
                 ),
                 borderRadius: BorderRadius.circular(16)),
         hintStyle: hintStyle ?? Styles.font14splightGreyRegular,
@@ -57,6 +75,11 @@ class DocdocTextFormField extends StatelessWidget {
       ),
       obscureText: isObscureText ?? false,
       style: inputTextStyles ?? Styles.font14spMiblackRegular,
+      controller: controller,
+      validator: (value){
+        return
+            validator(value);
+      },
     );
   }
 }
