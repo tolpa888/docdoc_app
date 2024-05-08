@@ -8,7 +8,6 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/docdoc_text_form_field.dart';
 
-
 class EmailAndPassword extends StatefulWidget {
   @override
   State<EmailAndPassword> createState() => _EmailAndPasswordState();
@@ -17,34 +16,31 @@ class EmailAndPassword extends StatefulWidget {
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool isObscureText = true;
   late TextEditingController passwordController;
-  bool hasLowerCase = false ;
+  bool hasLowerCase = false;
   bool hasUpperrCase = false;
   bool hasSpecialCharacter = false;
   bool hasNumber = false;
   bool hasMinimumLength = false;
+
   @override
   void initState() {
     super.initState();
     passwordController = context.read<LoginCubit>().passwordController;
     setupPasswordControllerListener();
-
   }
 
   Widget build(BuildContext context) {
-
-     return
-     Form(
-       key: context.read<LoginCubit>().formKey,
+    return Form(
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         children: [
-
           DocdocTextFormField(
-
             controller: context.read<LoginCubit>().emailController,
-            validator: (value){
-              if (value == null || value.isEmpty || !AppRegex.isValidEmail(value)){
-                return
-                    'please Enter a valid email';
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isValidEmail(value)) {
+                return 'please Enter a valid email';
               }
             },
             hintText: 'Email',
@@ -65,39 +61,37 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 color: ColorsManger.mainblue,
               ),
             ),
-            validator: (value){
-              if (value == null || value.isEmpty){
-                return
-                    'please enter a valid password';
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'please enter a valid password';
               }
-
             },
           ),
-
           PasswordValidations(
             hasLowerCase: hasLowerCase,
             hasMinimumLength: hasMinimumLength,
             hasNumber: hasNumber,
             hasSpecialCharacter: hasSpecialCharacter,
             hasUpperrCase: hasUpperrCase,
-
           ),
         ],
       ),
     );
-
   }
-  void setupPasswordControllerListener(){
+
+  void setupPasswordControllerListener() {
     passwordController.addListener(() {
       setState(() {
         hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
         hasUpperrCase = AppRegex.hasUpperCase(passwordController.text);
-        hasSpecialCharacter = AppRegex.hasSpecialCharacter(passwordController.text);
+        hasSpecialCharacter =
+            AppRegex.hasSpecialCharacter(passwordController.text);
         hasNumber = AppRegex.hasDigit(passwordController.text);
         hasMinimumLength = AppRegex.hasMinimumLength(passwordController.text);
       });
     });
   }
+
   @override
   void dispose() {
     // TODO: implement dispose

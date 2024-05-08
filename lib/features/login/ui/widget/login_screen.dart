@@ -1,8 +1,6 @@
 import 'package:docdoc_app/core/helpers/spacing.dart';
-import 'package:docdoc_app/core/theming/colors.dart';
 import 'package:docdoc_app/core/theming/styles.dart';
 import 'package:docdoc_app/core/widgets/docdoc_text_button.dart';
-import 'package:docdoc_app/core/widgets/docdoc_text_form_field.dart';
 import 'package:docdoc_app/features/login/data/model/login_request_body.dart';
 import 'package:docdoc_app/features/login/logic/login_cubit.dart';
 import 'package:docdoc_app/features/login/ui/widget/email_and_password.dart';
@@ -11,8 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:docdoc_app/features/login/ui/widget/already_have_an_account.dart';
 import 'package:docdoc_app/features/login/ui/widget/terms_and_conditions.dart';
-import 'package:docdoc_app/features/login/data/model/login_request_body.dart';
-
 import 'login_cubit_listener.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -74,9 +70,7 @@ class LoginScreen extends StatelessWidget {
 
   void validateThenLogin(BuildContext context){
 if (context.read<LoginCubit>().formKey.currentState!.validate()){
-context.read<LoginCubit>().emitLoginState(LoginRequesBody(
-    email: context.read<LoginCubit>().emailController.text,
-    password: context.read<LoginCubit>().passwordController.text));
+context.read<LoginCubit>().emitLoginState();
 
 }
   }
