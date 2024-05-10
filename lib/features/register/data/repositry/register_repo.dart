@@ -9,7 +9,7 @@ class RegisterRepo {
 
   RegisterRepo(this._apiService);
 
-  Future<ApiResult<RegisterResponse>> login(
+  Future<ApiResult<RegisterResponse>> register(
       RegisterRequestBody registerRequestBody) async {
     try {
       final response = await _apiService.register(registerRequestBody);
