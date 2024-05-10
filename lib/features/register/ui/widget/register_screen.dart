@@ -5,11 +5,10 @@ import 'package:docdoc_app/core/helpers/text_constant.dart';
 import 'package:docdoc_app/core/theming/styles.dart';
 import 'package:docdoc_app/core/widgets/docdoc_text_button.dart';
 import 'package:docdoc_app/features/register/logic/register_cubit.dart';
-import 'package:docdoc_app/features/register/logic/register_state.dart';
-import 'package:docdoc_app/features/register/ui/already_have_an_account.dart';
+import 'package:docdoc_app/features/register/ui/widget/already_have_an_account.dart';
 import 'package:docdoc_app/features/login/ui/widget/terms_and_conditions.dart';
-import 'package:docdoc_app/features/register/ui/register_cubit_listener.dart';
-import 'package:docdoc_app/features/register/ui/register_form.dart';
+import 'package:docdoc_app/features/register/ui/widget/register_cubit_listener.dart';
+import 'package:docdoc_app/features/register/ui/widget/register_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -55,8 +54,10 @@ class RegisterScreen extends StatelessWidget {
     );
   }
   void validateThenRegister (BuildContext context) {
-    if (context.read<RegisterCubit>().formKey.currentState!.validate()){}
-    context.read<RegisterCubit>().emitRegisterrState();
+    if (context.read<RegisterCubit>().formKey.currentState!.validate()){
+      context.read<RegisterCubit>().emitRegisterrState();
+    }
+
 
   }
 }

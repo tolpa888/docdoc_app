@@ -62,7 +62,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               ),
             ),
             validator: (value) {
-              if (value == null || value.isEmpty) {
+              if (value == null || value.isEmpty || !AppRegex.hasMinimumLength(value)
+                  || !AppRegex.hasLowerCase(value)
+                  || !AppRegex.hasLowerCase(value)
+                  || !AppRegex.hasSpecialCharacter(value)
+              ) {
+                setupPasswordControllerListener();
                 return 'please enter a valid password';
               }
             },

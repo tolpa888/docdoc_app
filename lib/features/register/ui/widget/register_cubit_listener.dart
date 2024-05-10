@@ -3,9 +3,9 @@ import 'package:docdoc_app/features/register/logic/register_cubit.dart';
 import 'package:docdoc_app/features/register/logic/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../core/routing/routes.dart';
-import '../../../core/theming/colors.dart';
-import '../../../core/theming/styles.dart';
+import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/styles.dart';
 
 class RegisterCubitListener extends StatelessWidget {
   const RegisterCubitListener({super.key});
