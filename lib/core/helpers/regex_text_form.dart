@@ -31,6 +31,11 @@ class AppRegex {
      RegExp(r'^(?=.{8,})').hasMatch(password);
 
  }
+ static bool  phoneNumber (String password){
+   return
+     RegExp(r'^(\+201|01|00201)[0-2,5]{1}[0-9]{8}').hasMatch(password);
+
+ }
 
 
 

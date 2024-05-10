@@ -1,5 +1,7 @@
 import 'package:docdoc_app/core/di/dependency_injection.dart';
 import 'package:docdoc_app/features/login/logic/login_cubit.dart';
+import 'package:docdoc_app/features/register/logic/register_cubit.dart';
+import 'package:docdoc_app/features/register/ui/widget/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/features/login/ui/widget/login_screen.dart';
@@ -20,6 +22,12 @@ class AppRouter {
                 ));
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => HomeScreen());
+      case Routes.registerScreen:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+              create: (context) => getIt<RegisterCubit>(),
+              child: RegisterScreen(),
+            ));
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

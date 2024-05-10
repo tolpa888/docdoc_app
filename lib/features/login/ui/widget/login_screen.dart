@@ -1,18 +1,15 @@
 import 'package:docdoc_app/core/helpers/spacing.dart';
-import 'package:docdoc_app/core/theming/colors.dart';
 import 'package:docdoc_app/core/theming/styles.dart';
 import 'package:docdoc_app/core/widgets/docdoc_text_button.dart';
-import 'package:docdoc_app/core/widgets/docdoc_text_form_field.dart';
 import 'package:docdoc_app/features/login/data/model/login_request_body.dart';
 import 'package:docdoc_app/features/login/logic/login_cubit.dart';
+import 'package:docdoc_app/features/login/ui/widget/dont_have_account.dart';
 import 'package:docdoc_app/features/login/ui/widget/email_and_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:docdoc_app/features/login/ui/widget/already_have_an_account.dart';
+import 'package:docdoc_app/features/register/ui/widget/already_have_an_account.dart';
 import 'package:docdoc_app/features/login/ui/widget/terms_and_conditions.dart';
-import 'package:docdoc_app/features/login/data/model/login_request_body.dart';
-
 import 'login_cubit_listener.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -21,6 +18,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30.sp, vertical: 30.sp),
@@ -59,8 +57,8 @@ class LoginScreen extends StatelessWidget {
                   },
                 ),
                 verticalSpacing(16),
-                AlreadyHaveAnAccount(),
-                verticalSpacing(60),
+                DontHaveAccount(),
+                verticalSpacing(30),
                 TermsAndConditions(),
                 LoginCubitListener(),
               ],
@@ -74,9 +72,7 @@ class LoginScreen extends StatelessWidget {
 
   void validateThenLogin(BuildContext context){
 if (context.read<LoginCubit>().formKey.currentState!.validate()){
-context.read<LoginCubit>().emitLoginState(LoginRequesBody(
-    email: context.read<LoginCubit>().emailController.text,
-    password: context.read<LoginCubit>().passwordController.text));
+context.read<LoginCubit>().emitLoginState();
 
 }
   }
