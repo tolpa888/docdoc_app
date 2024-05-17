@@ -1,4 +1,6 @@
+import 'package:docdoc_app/core/helpers/extensions.dart';
 import 'package:docdoc_app/core/helpers/spacing.dart';
+import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/theming/styles.dart';
 import 'package:docdoc_app/core/widgets/docdoc_text_button.dart';
 import 'package:docdoc_app/features/login/data/model/login_request_body.dart';
@@ -45,8 +47,12 @@ class LoginScreen extends StatelessWidget {
                 verticalSpacing(24),
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
-                  child: Text('Forgot Password',
-                      style: Styles.font12spMainBlueRegular),
+                  child: TextButton(onPressed: (){
+                    context.pushReplacementNamed(Routes.forgotPasswordScreen);
+                  }, child: Text('Forgot Password',
+                    style: Styles.font12spMainBlueRegular),)
+
+
                 ),
                 verticalSpacing(40),
                 DocdocTextButton(

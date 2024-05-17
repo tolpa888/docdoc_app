@@ -68,4 +68,24 @@ class Styles {
   color: ColorsManger.grey,
   fontSize: 12.sp,
   fontWeight: FontWeightHelper.regular);
+  static TextStyle font18whiteSemibold = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 18.sp
+
+  );
+  static TextStyle font13spGreyegular = TextStyle(
+      color: Colors.grey,
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.regular);
+  static TextStyle font24spblackMedium = TextStyle(
+      color: Colors.black,
+      fontSize: 20,
+      fontWeight: FontWeightHelper.semiBold);
+
+  static TextStyle font12spblackRegular = TextStyle(
+      color: ColorsManger.dividerText,
+      fontSize: 12.sp,
+      fontWeight: FontWeightHelper.regular);
+
 }

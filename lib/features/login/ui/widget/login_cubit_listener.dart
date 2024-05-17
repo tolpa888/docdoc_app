@@ -27,7 +27,7 @@ class LoginCubitListener extends StatelessWidget {
              },
                success: (loginResponse){
                context.pop();
-context.pushNamed(Routes.homeScreen);
+context.pushReplacementNamed(Routes.docDocBottomNavigationBar);
                },
              error: (error){
                context.pop();
