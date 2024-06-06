@@ -25,7 +25,7 @@ class _DocdocBottomNavigationBarState extends State<DocdocBottomNavigationBar> {
     // TODO: implement build
     return Scaffold(
       body: PageView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
           HomeScreen(),

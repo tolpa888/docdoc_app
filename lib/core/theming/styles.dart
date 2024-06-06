@@ -88,4 +88,14 @@ class Styles {
       fontSize: 12.sp,
       fontWeight: FontWeightHelper.regular);
 
+  static TextStyle font14spblackRegular = TextStyle(
+      color: ColorsManger.dividerText,
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.regular);
+
+  static TextStyle font14spRedRegular = TextStyle(
+      color: Colors.red,
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.regular);
+
 }

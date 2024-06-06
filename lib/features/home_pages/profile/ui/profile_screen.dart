@@ -1,7 +1,10 @@
+import 'package:docdoc_app/core/helpers/extensions.dart';
 import 'package:docdoc_app/core/helpers/spacing.dart';
+import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/theming/colors.dart';
 import 'package:docdoc_app/features/home_pages/profile/ui/widgets/appointment_records.dart';
 import 'package:docdoc_app/features/home_pages/profile/ui/widgets/name_and_email.dart';
+import 'package:docdoc_app/features/home_pages/profile/ui/widgets/protile_list_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +26,9 @@ class ProfileScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                context.pushNamed(Routes.settingScreen);
+              },
               icon: SvgPicture.asset('assets/svgs/setting.svg')),
         ],
       ),
@@ -46,8 +51,8 @@ class ProfileScreen extends StatelessWidget {
                 NameAndEmail(),
                 verticalSpacing(20),
                 AppointmentRecords(),
-
-
+                verticalSpacing(15),
+                ProfileListTile(),
               ],
             ),
           ),

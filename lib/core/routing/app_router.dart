@@ -1,4 +1,6 @@
 import 'package:docdoc_app/core/di/dependency_injection.dart';
+import 'package:docdoc_app/features/home_pages/profile/notification/notification_screen.dart';
+import 'package:docdoc_app/features/home_pages/profile/setting/ui/setting_screen.dart';
 import 'package:docdoc_app/features/login/logic/login_cubit.dart';
 import 'package:docdoc_app/features/register/logic/register_cubit.dart';
 import 'package:docdoc_app/features/register/ui/widget/register_screen.dart';
@@ -34,6 +36,10 @@ class AppRouter {
             ));
       case Routes.forgotPasswordScreen:
         return MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
+      case Routes.settingScreen:
+        return MaterialPageRoute(builder: (_) => SettingScreen());
+      case Routes.notificationScreen:
+        return MaterialPageRoute(builder: (_) => NotificationScreen());
 
     }
   }

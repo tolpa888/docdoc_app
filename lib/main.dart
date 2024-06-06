@@ -7,6 +7,7 @@ import 'core/di/dependency_injection.dart';
 void main() {
   setupGetIt();
   runApp(
+
     DocApp(appRouter: AppRouter()),
   );
 }

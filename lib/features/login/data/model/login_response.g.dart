@@ -14,7 +14,6 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
           : UserData.fromJson(json['data'] as Map<String, dynamic>),
       json['status'] as bool?,
       json['code'] as int?,
-
     );
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>

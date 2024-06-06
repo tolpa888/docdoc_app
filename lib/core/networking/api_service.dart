@@ -4,6 +4,7 @@ import 'package:docdoc_app/features/register/data/model/register_request_body.da
 import 'package:retrofit/retrofit.dart';
 import 'package:docdoc_app/core/networking/api_constants.dart';
 import 'package:docdoc_app/features/login/data/model/login_response.dart';
+import '../../features/home_pages/profile/setting/log_out/data/model/log_out_response.dart';
 import '../../features/register/data/model/register_response.dart';
 
 part 'api_service.g.dart';
@@ -21,4 +22,7 @@ abstract class ApiService {
   Future<RegisterResponse> register(
     @Body() RegisterRequestBody registerRequestBody,
   );
+
+  @POST(ApiConstants.logout)
+  Future<LogoutResponse> logout();
 }
