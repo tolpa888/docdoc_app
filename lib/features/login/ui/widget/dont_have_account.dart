@@ -15,7 +15,7 @@ class DontHaveAccount extends StatelessWidget {
         Text('Dont have an account yet?', style: Styles.font13spBlackRegular),
         TextButton(
           onPressed: () {
-            context.pushNamed(Routes.registerScreen);
+            context.pushReplacementNamed(Routes.registerScreen);
           },
           child: Text('Sign Up', style: Styles.font13spMainBlueSemiBold),
         )

@@ -15,7 +15,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
         Text('Already have an account yet? Sign Up ', style: Styles.font13spBlackRegular),
         TextButton(
           onPressed: () {
-            context.pushNamed(Routes.loginScreen);
+            context.pushReplacementNamed(Routes.loginScreen);
           },
           child: Text('Sign In', style: Styles.font13spMainBlueSemiBold),
         )

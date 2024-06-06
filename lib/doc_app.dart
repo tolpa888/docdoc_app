@@ -2,6 +2,7 @@ import 'package:docdoc_app/core/routing/app_router.dart';
 import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DocApp extends StatelessWidget {
@@ -11,6 +12,9 @@ class DocApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.white
+    ));
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,

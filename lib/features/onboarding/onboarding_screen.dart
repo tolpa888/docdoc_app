@@ -38,7 +38,7 @@ class OnboardingScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 18.sp),
                     DocdocTextButton(textButton: 'Get Started',textStyle: Styles.font16spWhiteSemibold, onPressed: (){
-                      Navigator.pushNamed(context, Routes.loginScreen);
+                      Navigator.pushReplacementNamed(context, Routes.loginScreen);
                     })
                   ],
                 ),

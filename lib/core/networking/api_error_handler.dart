@@ -48,10 +48,8 @@ class ResponseMessage {
       ApiErrors.UNAUTORISED; // failure, user is not authorised
   static const String FORBIDDEN =
       ApiErrors.FORBIDDEN; //  failure, API rejected request
-  static const String INTERNAL_SERVER_ERROR =
-      ApiErrors.INTERNAL_SERVER_ERROR; // failure, crash in server side
-  static const String NOT_FOUND =
-      ApiErrors.NOT_FOUND; // failure, crash in server side
+  static const String INTERNAL_SERVER_ERROR = ApiErrors.INTERNAL_SERVER_ERROR; // failure, crash in server side
+  static const String NOT_FOUND = ApiErrors.NOT_FOUND; // failure, crash in server side
 
   // local status code
   static const String CONNECT_TIMEOUT = ApiErrors.CONNECT_TIMEOUT;

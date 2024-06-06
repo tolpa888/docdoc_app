@@ -1,4 +1,6 @@
 import 'package:docdoc_app/core/di/dependency_injection.dart';
+import 'package:docdoc_app/features/home_pages/profile/notification/notification_screen.dart';
+import 'package:docdoc_app/features/home_pages/profile/setting/ui/setting_screen.dart';
 import 'package:docdoc_app/features/login/logic/login_cubit.dart';
 import 'package:docdoc_app/features/register/logic/register_cubit.dart';
 import 'package:docdoc_app/features/register/ui/widget/register_screen.dart';
@@ -7,10 +9,14 @@ import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/features/login/ui/widget/login_screen.dart';
 import 'package:docdoc_app/features/onboarding/onboarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:docdoc_app/features/home/home.dart';
+
+
+import '../../features/forgot_password/ui/widgets/forgot_password.dart';
+import '../../features/home_pages/docdoc_bottom _navigation_bar.dart';
+
 
 class AppRouter {
-  Route generateRoutes(RouteSettings settings) {
+  Route? generateRoutes(RouteSettings settings) {
     switch (settings.name) {
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => OnboardingScreen());
@@ -20,21 +26,21 @@ class AppRouter {
                   create: (context) => getIt<LoginCubit>(),
                   child: LoginScreen(),
                 ));
-      case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+      case Routes.docDocBottomNavigationBar:
+        return MaterialPageRoute(builder: (_) => DocdocBottomNavigationBar());
       case Routes.registerScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
               create: (context) => getIt<RegisterCubit>(),
               child: RegisterScreen(),
             ));
-      default:
-        return MaterialPageRoute(
-            builder: (_) => Scaffold(
-                  body: Center(
-                    child: Text('No route defined as ${settings.name}'),
-                  ),
-                ));
+      case Routes.forgotPasswordScreen:
+        return MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
+      case Routes.settingScreen:
+        return MaterialPageRoute(builder: (_) => SettingScreen());
+      case Routes.notificationScreen:
+        return MaterialPageRoute(builder: (_) => NotificationScreen());
+
     }
   }
 }
