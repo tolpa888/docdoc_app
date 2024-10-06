@@ -1,5 +1,6 @@
 import 'package:docdoc_app/core/di/dependency_injection.dart';
 import 'package:docdoc_app/features/home_pages/profile/notification/notification_screen.dart';
+import 'package:docdoc_app/features/home_pages/profile/setting/log_out/logic/logout_cubit.dart';
 import 'package:docdoc_app/features/home_pages/profile/setting/ui/setting_screen.dart';
 import 'package:docdoc_app/features/login/logic/login_cubit.dart';
 import 'package:docdoc_app/features/register/logic/register_cubit.dart';
@@ -37,7 +38,9 @@ class AppRouter {
       case Routes.forgotPasswordScreen:
         return MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
       case Routes.settingScreen:
-        return MaterialPageRoute(builder: (_) => SettingScreen());
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (context)=> getIt<LogoutCubit>(),
+        child: SettingScreen(),
+        ));
       case Routes.notificationScreen:
         return MaterialPageRoute(builder: (_) => NotificationScreen());
 

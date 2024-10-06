@@ -10,6 +10,7 @@ class LogoutCubit extends Cubit<LogoutState> {
   void emitLogoutState() async {
     emit(const LogoutState.loading());
     final response = await _logoutRepo.logout();
+    print("response");
     response.when(success: (logoutResponse) {
       emit(LogoutState.success(logoutResponse));
     }, failure: (error) {

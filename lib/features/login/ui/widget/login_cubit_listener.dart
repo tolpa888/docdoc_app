@@ -11,41 +11,48 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginCubitListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-   return
-       BlocListener<LoginCubit, LoginState>(
-         listenWhen: (previous, current) => current is Loding || current is Success || current is Error,
-
-           listener: (context, state){
-           state.whenOrNull(
-             loading: (){
-               showDialog(context: context, builder: (context) => Center(
-                 child: CircularProgressIndicator(
-                   color: ColorsManger.mainblue,
-                 ),
-
-               ));
-             },
-               success: (loginResponse){
-               context.pop();
-context.pushReplacementNamed(Routes.docDocBottomNavigationBar);
-               },
-             error: (error){
-               context.pop();
-               showDialog(context: context,
-                   builder: (context)=> AlertDialog(
-                     icon: Icon(Icons.error, color: Colors.red,size: 32,
-                     ),
-                     content: Text(error, style: Styles.font13spMainBlueSemiBold),
-                     actions: [
-                       TextButton(onPressed: (){context.pop();}, child: Text('Got it',style: Styles.font14spGreyRegular,))
-                     ],
-                   ));
-             }
-           );
-           },
-         child: SizedBox.shrink(),
-         
-       );
+    return BlocListener<LoginCubit, LoginState>(
+      listenWhen: (previous, current) =>
+          current is Loding || current is Success || current is Error,
+      listener: (context, state) {
+        state.whenOrNull(loading: () {
+          showDialog(
+              context: context,
+              builder: (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManger.mainblue,
+                    ),
+                  )
+          );
+        }, success: (loginResponse) {
+          context.pop();
+          context.pushReplacementNamed(Routes.docDocBottomNavigationBar);
+        }, error: (error) {
+          context.pop();
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    icon: const Icon(
+                      Icons.error,
+                      color: Colors.red,
+                      size: 32,
+                    ),
+                    content:
+                        Text(error, style: Styles.font13spMainBlueSemiBold),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            context.pop();
+                          },
+                          child: Text(
+                            'Got it',
+                            style: Styles.font14spGreyRegular,
+                          ))
+                    ],
+                  ));
+        });
+      },
+      child: const SizedBox.shrink(),
+    );
   }
-
 }

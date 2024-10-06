@@ -25,4 +25,5 @@ abstract class ApiService {
 
   @POST(ApiConstants.logout)
   Future<LogoutResponse> logout();
+
 }

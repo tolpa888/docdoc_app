@@ -1,16 +1,15 @@
 import 'package:docdoc_app/core/helpers/extensions.dart';
 import 'package:docdoc_app/core/helpers/spacing.dart';
+import 'package:docdoc_app/core/helpers/text_constant.dart';
 import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/theming/styles.dart';
 import 'package:docdoc_app/core/widgets/docdoc_text_button.dart';
-import 'package:docdoc_app/features/login/data/model/login_request_body.dart';
 import 'package:docdoc_app/features/login/logic/login_cubit.dart';
 import 'package:docdoc_app/features/login/ui/widget/dont_have_account.dart';
 import 'package:docdoc_app/features/login/ui/widget/email_and_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:docdoc_app/features/register/ui/widget/already_have_an_account.dart';
 import 'package:docdoc_app/features/login/ui/widget/terms_and_conditions.dart';
 import 'login_cubit_listener.dart';
 
@@ -28,13 +27,15 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                LoginCubitListener(),
+
                 Text(
                   'Welcome Back',
                   style: Styles.font24mainbluepBold,
                 ),
                 verticalSpacing(8),
                 Text(
-                  "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
+                 TextConstant.loginText,
                   style: Styles.font14spGreyRegular,
                 ),
                 verticalSpacing(31),
@@ -59,14 +60,16 @@ class LoginScreen extends StatelessWidget {
                   textButton: 'Login',
                   textStyle: Styles.font16spWhiteSemibold,
                   onPressed: () {
-                    validateThenLogin(context);
+
+                    (context);
                   },
                 ),
                 verticalSpacing(16),
-                DontHaveAccount(),
+                const DontHaveAccount(),
                 verticalSpacing(30),
                 TermsAndConditions(),
-                LoginCubitListener(),
+
+
               ],
             ),
           ),
@@ -79,6 +82,7 @@ class LoginScreen extends StatelessWidget {
   void validateThenLogin(BuildContext context){
 if (context.read<LoginCubit>().formKey.currentState!.validate()){
 context.read<LoginCubit>().emitLoginState();
+
 
 }
   }

@@ -1,5 +1,7 @@
 import 'package:docdoc_app/core/networking/api_service.dart';
 import 'package:docdoc_app/core/networking/dio_factory.dart';
+import 'package:docdoc_app/features/home_pages/profile/setting/log_out/data/repositry/logout_repo.dart';
+import 'package:docdoc_app/features/home_pages/profile/setting/log_out/logic/logout_cubit.dart';
 import 'package:docdoc_app/features/login/data/repositry/login_repo.dart';
 import 'package:docdoc_app/features/login/logic/login_cubit.dart';
 import 'package:docdoc_app/features/register/data/repositry/register_repo.dart';
@@ -17,7 +19,7 @@ Future<void> setupGetIt () async{
   //register
   getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
-
-
-  //Home
+  //Logout
+  getIt.registerLazySingleton<LogoutRepo>(() => LogoutRepo(getIt()));
+  getIt.registerFactory<LogoutCubit>(() => LogoutCubit(getIt()));
 }
