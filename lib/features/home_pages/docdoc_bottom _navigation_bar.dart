@@ -1,7 +1,7 @@
 import 'package:docdoc_app/core/theming/colors.dart';
 import 'package:docdoc_app/features/home_pages/calendar/calendar_screen.dart';
 import 'package:docdoc_app/features/home_pages/chat/chat_screen.dart';
-import 'package:docdoc_app/features/home_pages/home/home_screen.dart';
+import 'package:docdoc_app/features/home_pages/home/ui/home_screen.dart';
 import 'package:docdoc_app/features/home_pages/profile/ui/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

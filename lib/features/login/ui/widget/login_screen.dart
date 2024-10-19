@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                   textStyle: Styles.font16spWhiteSemibold,
                   onPressed: () {
 
-                    (context);
+                    validateThenLogin(context);
                   },
                 ),
                 verticalSpacing(16),

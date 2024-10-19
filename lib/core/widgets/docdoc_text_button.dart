@@ -30,18 +30,18 @@ class DocdocTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: ButtonStyle(
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius ?? 16),
             ),
           ),
-          backgroundColor: MaterialStatePropertyAll(
+          backgroundColor: WidgetStatePropertyAll(
               backgroundColor ?? ColorsManger.mainblue),
-          padding: MaterialStateProperty.all<EdgeInsets>(
+          padding: WidgetStateProperty.all<EdgeInsets>(
             EdgeInsets.symmetric(
                 horizontal: horizontal ?? 12.w, vertical: vertical ?? 14.h),
           ),
-          fixedSize: MaterialStateProperty.all(
+          fixedSize: WidgetStateProperty.all(
             Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 50.h),
           )),
       child: Text(

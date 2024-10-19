@@ -97,5 +97,15 @@ class Styles {
       color: Colors.red,
       fontSize: 14.sp,
       fontWeight: FontWeightHelper.regular);
+  static TextStyle font13spBlackBold = TextStyle(
+    color: Colors.black,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.bold
+  );
+  static TextStyle font11spBlackRegular = TextStyle(
+      color: ColorsManger.greyMoreLight,
+      fontSize: 11.sp,
+      fontWeight: FontWeightHelper.regular
+  );
 
 }

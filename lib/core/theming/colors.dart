@@ -10,4 +10,6 @@ class ColorsManger{
   static const Color profileGrey = Color(0XFFF8F8F8);
   static const Color dividerColor = Color(0XFFE0E0E0);
   static const Color dividerText = Color(0XFF242424);
+  static const Color greyMoreLight = Color(0XFF616161);
+  static const Color homeGrey = Color(0XFFF5F5F5);
 }
